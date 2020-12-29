@@ -1,7 +1,15 @@
-import React, { Component } from "react";
+// import axios from "axios";
+// import React, { useState, useEffect } from "react";
+import React from "react";
+import Login from "./Login";
 
-export default class Home extends Component {
-  render() {
-    return <div>This is the Home page</div>;
-  }
+function Home() {
+  return (
+    <div className="home">
+      Welcome to sabkuah-spotify
+      <Login />
+    </div>
+  );
 }
+
+export default Home;
