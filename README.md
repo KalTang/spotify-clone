@@ -11,4 +11,4 @@
 
 ## Spotify API information
 
-- https://rapidapi.com/stefan.skliarov/api/Spotify
+- npm i spotify-web-api-js

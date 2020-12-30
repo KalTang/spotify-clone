@@ -8,10 +8,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery";
 import "popper.js";
 import "bootstrap/dist/js/bootstrap";
+import { DataLayer } from "./utils/DataLayer";
+import reducer, { initialState } from "./utils/reducer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DataLayer initialState={initialState} reducer={reducer}>
+      <App />
+    </DataLayer>
   </React.StrictMode>,
   document.getElementById("root")
 );
