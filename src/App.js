@@ -27,10 +27,7 @@ import { useDataLayerValue } from "./utils/DataLayer";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [token, setToken] = useState(null);
-  const [{}, dispatch] = useDataLayerValue();
-
-  //Runs code based on a given condition
+  const [{ user, token }, dispatch] = useDataLayerValue();
 
   //this is fired when Url is changed, will extract token and then clear url for security
   useEffect(() => {
@@ -39,15 +36,21 @@ function App() {
     const _token = hash.access_token;
 
     if (_token) {
-      setToken(_token);
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      });
+
       spotify.setAccessToken(_token);
 
       spotify.getMe().then((user) => {
-        console.log("person", user);
+        //dispatch user info to the data layer for access later on
+        dispatch({
+          type: "SET_USER",
+          user: user,
+        });
       });
     }
-
-    console.log("I HAVE A TOKEN >>>", token);
   }, []);
 
   return (
@@ -55,8 +58,9 @@ function App() {
       {token ? (
         <Router>
           <Navbar />
+          <Player spotify={spotify} />
 
-          <main>
+          {/* <main>
             <Switch>
               <Route path="/myLibrary" component={Libary} />
               <Route path="/myPlaylists" component={Playlist} />
@@ -67,7 +71,7 @@ function App() {
               <Route path="/" component={Player} />
               <Redirect to="notFound" />
             </Switch>
-          </main>
+          </main> */}
         </Router>
       ) : (
         <Login />
