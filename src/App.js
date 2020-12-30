@@ -57,7 +57,7 @@ function App() {
     <React.Fragment>
       {token ? (
         <Router>
-          <Navbar />
+          {/* <Navbar /> */}
           <Player spotify={spotify} />
 
           {/* <main>

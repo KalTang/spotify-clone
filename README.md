@@ -8,6 +8,7 @@
 - Jquery, Popper.js
 - Axios
 - SASS
+- Material-UI Icons
 
 ## Spotify API information
 
