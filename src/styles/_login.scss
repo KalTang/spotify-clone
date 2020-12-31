@@ -9,7 +9,7 @@
   }
 
   img {
-    width: 100%;
+    width: 40%;
   }
 
   a {
@@ -18,6 +18,10 @@
     border-radius: 99px;
     font-weight: 800;
     color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
     text-decoration: none;
   }
 }

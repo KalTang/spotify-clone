@@ -38,6 +38,11 @@ const reducer = (state, action) => {
         ...state,
         discover_weekly: action.discover_weekly,
       };
+    case "SET_RECENTLY_PLAYED_TRACKS":
+      return {
+        ...state,
+        recent_tracks: action.recent_tracks,
+      };
 
     default:
       return state;

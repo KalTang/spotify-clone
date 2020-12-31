@@ -1,17 +1,18 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize";
 
-const redirectUri = "http://localhost:3000/";
+//const redirectUri = "http://localhost:3000/";
+const redirectUri = "https://spotify-sabkuah.web.app/";
 
 //const clientId = process.env.CLIENT_ID;
 const clientId = "9ae88e2becb9468eb69e05265dd7467d";
 
 //gives you the correct permissions from spotify
 const scopes = [
-  "user-read-currently-playing",
+  //"user-read-currently-playing",
   "user-read-recently-played",
-  "user-read-playback-state",
+  //"user-read-playback-state",
   "user-top-read",
-  "user-modify-playback-state",
+  //"user-modify-playback-state",
 ];
 
 //returns with the token from the return url coming back from Spotify

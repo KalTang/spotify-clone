@@ -1,5 +1,5 @@
 //IMPORTED LIBRARIES
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   Redirect,
   Switch,
@@ -62,6 +62,13 @@ function App() {
         dispatch({
           type: "SET_DISCOVER_WEEKLY",
           discover_weekly: discover_weekly,
+        });
+      });
+
+      spotify.getMyRecentlyPlayedTracks().then((recent_tracks) => {
+        dispatch({
+          type: "SET_RECENTLY_PLAYED_TRACKS",
+          recent_tracks: recent_tracks,
         });
       });
     }
