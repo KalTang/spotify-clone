@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { useDataLayerValue } from "../utils/DataLayer";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
@@ -9,6 +9,8 @@ import SongRow from "./SongRow";
 function Body({ spotify }) {
   //const [{ discover_weekly }, dispatch] = useDataLayerValue();
   const [{ recent_tracks, discover_weekly }, dispatch] = useDataLayerValue();
+
+  const [playlist, setPlaylist] = useState({ recent_tracks });
 
   return (
     <div className="body">
@@ -48,8 +50,8 @@ function Body({ spotify }) {
             <SongRow track={item.track} />
           ))}
         </div>
-        {console.log("😝recent", recent_tracks)}
-        {console.log("😅discover", discover_weekly)}
+
+        {/* {console.log("😝recent", recent_tracks)} */}
       </div>
     </div>
   );
